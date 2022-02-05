@@ -1,10 +1,10 @@
 /*********************************************************************************
-*  WEB422 – Assignment 1
+*  WEB422 – Assignment 2
 *  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  
 *  No part of this assignment has been copied manually or electronically from any other source
 *  (including web sites) or distributed to other students.
 * 
-*  Name: Ranveer Singh Saini Student ID: 134213206 Date: 2022-01-21
+*  Name: Ranveer Singh Saini Student ID: 134213206 Date: 2022-02-05
 *  Heroku Link: https://web422-ranveer-assignment.herokuapp.com/
 *
 ********************************************************************************/ 
@@ -14,7 +14,7 @@ var express = require("express");
 var cors = require("cors");
 var dotenv =  require("dotenv");
 dotenv.config({path: "./keys/keys.env"});
-
+var path = require("path")
 var app = express();
 app.use(cors());
 app.use(express.json());
@@ -26,6 +26,7 @@ const db = new RestaurantDB();
 // setup a 'route' to listen on the default url path (http://localhost)
 app.get("/", function(req,res){
   res.json({message: "API Listening"});
+  //res.sendFile(path.join(__dirname,"./index.html"))
 });
 
 // Status 500 for wrong URL
